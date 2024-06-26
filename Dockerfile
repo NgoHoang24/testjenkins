@@ -1,13 +1,14 @@
-FROM golang:latest
-LABEL authors="ACER"
-# Set the working directory
-WORKDIR /go/src/app
+# Sử dụng image chính thức của Golang
+FROM golang:1.22-alpine
 
- # Copy mã nguồn vào container
+# Đặt thư mục làm việc
+WORKDIR /app
+
+# Sao chép file go vào container
 COPY . .
- # Biên dịch ứng dụng Go
-RUN go build -o hello.
 
- # Chạy ứng dụng khi container được khởi động
- CMD ["./hello"]
-ENTRYPOINT ["top", "-b"]
+# Biên dịch chương trình Go
+RUN go build -o main .
+
+# Chạy chương trình
+CMD ["./main"]

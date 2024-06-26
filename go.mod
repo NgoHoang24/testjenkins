@@ -1,3 +1,3 @@
-module Test
+module main
 
 go 1.22
